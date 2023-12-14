@@ -93,6 +93,11 @@ fn check_object_incompats(obj_files: &Vec<object::File>, input_files: &Vec<Strin
 fn main() {
     let args = Args::parse();
 
+    if args.input_files.len() == 0 {
+        println!("No input files provided!");
+        exit(1);
+    }
+
     // Read file contents of input files
     let file_content_buf = get_input_file_contents(&args.input_files);
 
